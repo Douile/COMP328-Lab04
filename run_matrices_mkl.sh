@@ -17,13 +17,13 @@ module load compilers/intel/2019u5
 
 # Compile with O0
 echo Compiling with O0
-icc -qopenmp -O0 ./matrices.c -o ./matrices-o0
+icc -qopenmp -O0 ./matrices-mkl.c --mkl=sequential -o ./matrices-o0
 echo Running with O0
 time ./matrices-o0
 
 # Compile with O3
 echo Compiling with O3
-icc -qopenmp -O3 ./matrices.c -o ./matrices-o3
+icc -qopenmp -O3 ./matrices-mkl.c --mkl=sequential -o ./matrices-o3
 echo Running with O3
 time ./matrices-o3
 
