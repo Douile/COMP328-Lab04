@@ -13,17 +13,10 @@
 #SBATCH -t 3
 
 # Load the compiler module
-module load compilers/intel/2019u5
+# module load compilers/intel/2019u5
+# module load libs/intel-mkl/2019u5/bin
 
-# Compile with O0
-echo Compiling with O0
-icc -qopenmp -O0 ./matrices-mkl.c --mkl=sequential -o ./matrices-o0
-echo Running with O0
-time ./matrices-o0
-
-# Compile with O3
-echo Compiling with O3
-icc -qopenmp -O3 ./matrices-mkl.c --mkl=sequential -o ./matrices-o3
-echo Running with O3
-time ./matrices-o3
-
+echo Compiling with mkl
+icc -qopenmp -O3 -mkl=sequential ./matrices-mkl.c -o ./matrices-mkl
+echo Running with mkl
+./matrices-mkl
