@@ -7,7 +7,7 @@
 #SBATCH -D ./
 
 # Include environment variables
-#SBATCH --export
+#SBATCH --export=ALL
 
 # Time limit for job
 #SBATCH -t 3
